@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suppléments – Calendrier (v2)</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#2077D2">
+</head>
+<body>
+  <header>
+    <h1>Suppléments – Calendrier (v2)</h1>
+    <p class="subtitle">Planifiez whey, créatine, magnésium (Metarelax), vit B3, oméga-3 selon nuits et entraînements.</p>
+  </header>
+  <main>
+    <section class="card">
+      <h2>Paramètres de cycle de nuit</h2>
+      <div class="grid">
+        <label>Date/heure du début du cycle (1ère nuit travaillée)
+          <input type="datetime-local" id="cycleStart" />
+        </label>
+        <label>Nuits travaillées consécutives
+          <input type="number" id="onCount" min="1" value="4" />
+        </label>
+        <label>Nuits OFF consécutives
+          <input type="number" id="offCount" min="1" value="4" />
+        </label>
+      </div>
+      <div class="grid">
+        <label>Sommeil après nuit travaillée (coucher)
+          <input type="time" id="sleepWorkBed" value="08:30" />
+        </label>
+        <label>Réveil après nuit travaillée
+          <input type="time" id="sleepWorkWake" value="14:30" />
+        </label>
+      </div>
+      <div class="grid">
+        <label>Sommeil nuit OFF (coucher)
+          <input type="time" id="sleepOffBed" value="22:30" />
+        </label>
+        <label>Réveil nuit OFF
+          <input type="time" id="sleepOffWake" value="07:10" />
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Entraînements</h2>
+      <div class="grid">
+        <label>Date/heure début
+          <input type="datetime-local" id="woStart" />
+        </label>
+        <label>Date/heure fin
+          <input type="datetime-local" id="woEnd" />
+        </label>
+        <button id="addWorkout" class="secondary">Ajouter l'entraînement</button>
+      </div>
+      <ul id="workoutList" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Suppléments & règles (v2)</h2>
+      <p class="small">Whey & Créatine: post-workout + dose quotidienne si pas d'entraînement; Metarelax: 30 min avant coucher; Vit B3/Oméga-3: avec repas.</p>
+      <div id="supplements"></div>
+    </section>
+
+    <section class="card">
+      <h2>Génération du calendrier</h2>
+      <div class="grid">
+        <label>Nombre de jours à planifier
+          <input type="number" id="planDays" min="1" value="21" />
+        </label>
+        <button id="generate" class="primary">Générer</button>
+        <button id="exportICS" class="secondary">Exporter en .ics</button>
+      </div>
+      <div id="agenda"></div>
+    </section>
+  </main>
+  <footer>
+    <p class="small">⚠️ Informations générales. Adapter à votre santé; en cas de doute, avis d'un professionnel.</p>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

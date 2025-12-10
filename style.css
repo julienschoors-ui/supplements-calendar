@@ -1,0 +1,29 @@
+/* Styles simples, adaptés au mobile (FR) */
+:root { --bg: #f7f9fc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --primary: #2077D2; --primary-contrast: #ffffff; --border: #e2e8f0; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', 'Noto Sans', sans-serif; color: var(--text); background: var(--bg); }
+header { padding: 16px; background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+h1 { margin: 0; font-size: 1.4rem; }
+.subtitle { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+main { padding: 16px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 12px 0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; }
+input, select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; }
+button { padding: 10px 12px; border-radius: 8px; border: none; cursor: pointer; }
+button.primary { background: var(--primary); color: var(--primary-contrast); }
+button.secondary { background: #e6f0fb; color: var(--primary); }
+.list { list-style: none; padding: 0; margin: 8px 0 0; }
+.list li { display: flex; align-items: center; justify-content: space-between; padding: 8px; border: 1px dashed var(--border); border-radius: 8px; margin-bottom: 6px; }
+.list .small { color: var(--muted); font-size: 0.85rem; }
+#agenda { margin-top: 12px; }
+.agenda-day { padding: 10px; border-left: 4px solid var(--primary); background: #f0f6ff; border-radius: 8px; margin: 8px 0; }
+.event { display: flex; gap: 8px; align-items: start; padding: 8px; border: 1px solid var(--border); border-radius: 8px; margin: 4px 0; background: #fff; }
+.event .time { font-weight: 600; min-width: 70px; }
+.event .title { font-weight: 500; }
+.small { color: var(--muted); font-size: 0.85rem; }
+footer { padding: 16px; text-align: center; color: var(--muted); }
+.badge { font-size: 0.75rem; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--border); }
+.badge.hydro { background: #e8fff7; color: #0f766e; }
+.badge.lipo { background: #fff4e6; color: #9a3412; }
